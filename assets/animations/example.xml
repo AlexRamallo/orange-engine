@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<Animation repeat="false">
+	<Tileset>
+		<file name="animations/tile02.png" width="512" height="512" tW="8" tH="8"/>
+		<tiles w="63" h="63" left="1" top="1"/>
+	</Tileset>
+		<atf id="0,0" time="100" u="miliseconds"/>
+		<atf id="1,0" time="100" u="miliseconds"/>
+		<atf id="2,0" time="100" u="miliseconds"/>
+		<atf id="3,0" time="100" u="miliseconds"/>
+		<atf id="4,0" time="100" u="miliseconds"/>
+		<atf id="5,0" time="100" u="miliseconds"/>
+		<atf id="6,0" time="200" u="miliseconds"/>
+		<atf id="7,0" time="100" u="miliseconds"/>
+		<atf id="0,1" time="50" u="miliseconds"/>
+		<atf id="1,1" time="50" u="miliseconds"/>
+		<atf id="2,1" time="50" u="miliseconds"/>
+		<atf id="3,1" time="50" u="miliseconds"/>
+		<atf id="4,1" time="50" u="miliseconds"/>
+		<atf id="5,1" time="50" u="miliseconds"/>
+		<atf id="6,0" time="1" u="miliseconds"/>
+</Animation>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<OEA>
+	<Skeleton>
+		<Mesh filename="test/skelcube.obj">
+			<Bone name="control" O="0, 0, -2" T="0, 0, 0">
+						<v v="9"/>
+						<v v="10"/>
+						<v v="11"/>
+						<v v="12"/>
+						<v v="13"/>
+						<v v="14"/>
+						<v v="15"/>
+						<v v="16"/>
+				<Bone name="top" T="2, 1, 0">
+					<v v="5"/>
+					<v v="6"/>
+					<v v="7"/>
+					<v v="8"/>
+				</Bone>
+					<Bone name="bottom" T="0, -1, 0">
+						<v v="1"/>
+						<v v="2"/>
+						<v v="3"/>
+						<v v="4"/>
+					</Bone>
+			</Bone>
+		</Mesh>
+	</Skeleton>
+	
+	<Animation interpolation="linear">
+		<KeyFrame time="0">
+			<Rotation targ="control" v="0, 0, 0" abs="false"/>
+			<Position targ="control" v="0, 0, 0" abs="false"/>
+			<Scale targ="control" v="1, 1, 1" abs="false"/>
+			
+			<Rotation targ="top" v="0, 0, 0" abs="false"/>
+			<Position targ="top" v="0, 0, 0" abs="false"/>
+			<Scale targ="top" v="1, 1, 1" abs="false"/>
+			
+			<Rotation targ="bottom" v="0, 0, 0" abs="false"/>
+			<Position targ="bottom" v="0, 0, 0" abs="false"/>
+			<Scale targ="bottom" v="1, 1, 1" abs="false"/>		
+		</KeyFrame>
+		
+		<KeyFrame time="25">
+			<Scale targ="control" v="0.2, 0.2, 0.2" abs="false"/>	
+		</KeyFrame>	
+	</Animation>
+</OEA>

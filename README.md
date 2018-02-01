@@ -1,41 +1,30 @@
 # Orange Engine
 
-This is a 2D and 3D game engine I made back in highschool when I got my first Android phone. It is written in 100% Java, uses OpenGL ES 1.x (so no shaders), and is surprisingly functional. It weighs in at around ~30k LOC.
+This is a 2D and 3D game engine I made back in highschool when I got my first Android phone. It is written in 100% Java, uses OpenGL ES 1.x (so no shaders...I started making this thing on a HTC Dream/T-Mobile G1!), and is surprisingly functional.
+
+[More information here](https://aramallo.com/projects/orange-engine)
+
+# Why am I releasing this?
+
+You know Unity and Unreal Engine 4? I'm going to steal their market share.
+
+# How to use it
+
+**Step 1: don't.**
+
+But if you're *really* curious and want to dig through this mess, you'll have a functional, lightweight engine that works on pretty much every version of Android ever (no one *actually* uses anything older than Android 1.0). You'll also be able to constantly worry that everything will break because you're using an engine written by a kid who was using DVDs to backup his code when git was popular and widespread.
+
+### Instructions
+
+I don't entirely remember... I think I made a tutorial once for my brother because I was going to try to teach him programming using my engine, but that's probably lost. Best case is to look over the source code of [Crazy Virtual Dice 3D](https://github.com/AlexRamallo/virtual-dice) if you actually want to use this thing. [This function](https://github.com/AlexRamallo/virtual-dice/blob/master/src/com/snakeinalake/virtualdice/DiceRenderer.java#L91) in particular might be useful.
 
 
-It is essentially the engine that powered my first Android game, SpinShip. I pulled out the core engine features and packaged it as a separate reusable engine after I released the game. Unfortunately, I didn't use any version control back in ~2010/2011 when I began development (I backed up my code to DVDs lol), so there's no development history from that point. I also, predictably, lost the source code for the original SpinShip :(
+I know the API was strongly inspired by the Irrlicht 3D engine. There is an `OrangeDevice` class which is used to initialize everything, and you access the 2D and 3D features using `OSceneManager` for creating/drawing 3D `OSceneNode`s, and `OOrthoEnvironment` for `ONode2D`s
+
+The `COglRenderer` implements really basic stuff regarding the lifecycle of the app, issuing the drawing commands, setting GL features and updating the device with the new GL context when the surface gets recreated. Using this class directly probably will work, but you should reimplement your own version so you have more control over how these basic things happen.
 
 
-This engine was used to create the following apps that were/are published on the Android Market/Play Store, a few random non-Google app stores for Android, and Blackberry AppWorld:
-
-* SpinShip, SpinShip Lite, SpinShip HD
-* Crazy Virtual Dice 3D
-* Paperflight
-* Outpost
-* Pixel^3 3d modeling tool
-* Spiker Roller Live Wallpaper
-* Pitch Speed
-
-It was also used for a handful of apps I made for clients as a freelancer, and a bunch of incomplete personal projects. Pretty much the only thing that kept development of this engine alive was one giant project in particular that I ended up scrapping as well.
-
-# Features\*
-
-\*That I remember...
-
-* 2D and 3D graphics
-* API strongly inspired by the Irrlicht3D engine (it was my favorite at the time!)
-* Works on pretty much every Android version ever (uses basic opengl-es 1.x features only)
-* OBJ file format loading
-* Full 2D scene graph with many different 'nodes'
- * sprite/spritesheet, animation, text, etc
-* Virtual input system
- * buttons, joystick, toggle widgets, drag widgets
-* Basic component-based entity system
+Once that renderer is in place, you should be able to add things to the scene using `OSceneManager`, such as with the function `OSceneManager::createMeshSceneNode(String filename)`. IIRC, only obj files are supported **with triangulated faces**. If you try to load something with quads or more complex geometry, it won't render properly. Also, materials are ignored and I don't remember whether or not normals are loaded. None of my 3D stuff used lighting, so that whole side is underdeveloped. Although, if you're looking to do lighting or any modern effects whatsoever, an engine built on OpenGL ES 1.x is probably not a good choice to begin with.
 
 
-# Usage
-
-I don't really remember... I think I made a tutorial once for my brother because I was going to try to teach him programming using my engine, but that's probably lost. Best case is to look over some sample apps if you actually want to use this thing.
-
-
-I know the API was strongly inspired by the Irrlicht 3D engine. There is an `OrangeDevice` class which is used to initialie everything, and you access the 2D and 3D features using `OSceneManager` for creating/drawing 3D `OSceneNode`s, and `OOrthoEnvironment` for `ONode2D`s
+Once you add a node to the scene, everything should work. Just look at the various APIs for the nodes your using to manipulate the scene. The 2D APIs are very similar, but instead of using OSceneManager you use `OOrthoEnvironment`, which has a lot more features/different node types.
